@@ -19,5 +19,5 @@ export default function RecuperarScreen() {
     setMensaje('Listo. Ahora puedes entrar con tu PIN.');
     navigate('/bienvenida');
   };
-  return <div className="screen"><div className="screen__content"><div className="surface stack"><h1>Recuperar acceso</h1><p>Te enviaremos un código por SMS (simulado).</p><TextInput label="Celular" value={celular} onChange={e => setCelular(e.target.value)} /><Button disabled={!celular} onClick={enviar}>Enviar código</Button>{enviado && <><p className="alert">{mensaje}</p><Keypad value={codigo} onChange={setCodigo} /><Button onClick={confirmar}>Confirmar código</Button></>}<Button variant="ghost" onClick={() => navigate('/bienvenida')}>Volver</Button></div></div></div>;
+  return <div className="screen access-screen"><div className="screen__content"><div className="surface stack access-card"><h1>Recuperar acceso</h1><p>Te enviaremos un código por SMS (simulado).</p><TextInput label="Celular" value={celular} onChange={e => setCelular(e.target.value)} /><Button disabled={!celular} onClick={enviar}>Enviar código</Button>{enviado && <><p className="alert">{mensaje}</p><Keypad value={codigo} onChange={setCodigo} /><Button onClick={confirmar}>Confirmar código</Button></>}<Button variant="ghost" onClick={() => navigate('/bienvenida')}>Volver</Button></div></div></div>;
 }

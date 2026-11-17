@@ -42,6 +42,10 @@ body {
 }
 
 .screen__content { width: 100%; min-width: 0; padding: 20px 16px calc(88px + env(safe-area-inset-bottom)); display: flex; flex-direction: column; gap: 16px; }
+.access-screen { min-height: 100dvh; overflow-y: auto; }
+.access-screen .screen__content { min-height: 100dvh; justify-content: center; padding-bottom: max(24px, env(safe-area-inset-bottom)); }
+.access-card { width: 100%; max-width: 100%; min-width: 0; }
+.access-card > .button { width: 100%; }
 .screen__header { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
 .screen__header h1 { font-size: var(--text-title); line-height: 30px; color: var(--text-brand); }
 .screen__header p { color: var(--text-secondary); font-size: .875rem; }
