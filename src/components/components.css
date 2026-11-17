@@ -36,5 +36,5 @@
   background: var(--bg-surface); color: var(--text-primary); padding: 0 12px; font: 400 1rem var(--font-family);
 }
 .field input:focus, .field select:focus { outline: 2px solid var(--color-primary-600); border-color: var(--color-primary-600); }
-.keypad { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; }
+.keypad { width: 100%; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; }
 .keypad__key { min-height: 64px; border: 1.5px solid var(--color-border); border-radius: var(--radius-lg); background: var(--bg-surface); font: 800 1.5rem var(--font-family); color: var(--text-primary); }
