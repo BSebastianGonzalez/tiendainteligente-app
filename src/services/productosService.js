@@ -1,7 +1,12 @@
+import { seed } from '../data/seed';
+
 const KEY = 'ti_productos';
 export const productosService = {
   async listar() {
-    return JSON.parse(localStorage.getItem(KEY) || 'null') || [];
+    const guardados = JSON.parse(localStorage.getItem(KEY) || 'null');
+    if (guardados) return guardados;
+    localStorage.setItem(KEY, JSON.stringify(seed.productos));
+    return seed.productos;
   },
   async crear(prod) {
     const lista = await this.listar();
