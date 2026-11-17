@@ -1,0 +1,29 @@
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 360px;
+  height: 64px;
+  background: var(--bg-surface);
+  border-top: 1px solid var(--color-border);
+  display: flex;
+  z-index: 100;
+}
+.bottom-nav__tab {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  text-decoration: none;
+  color: var(--text-secondary);
+  font-size: var(--text-overline);
+  font-weight: 600;
+  transition: color 0.15s;
+  min-height: 56px;
+}
+.bottom-nav__tab--active { color: var(--color-primary-500); }
+.bottom-nav__icon { font-size: 1.25rem; }
+.bottom-nav__label { font-size: 0.65rem; }

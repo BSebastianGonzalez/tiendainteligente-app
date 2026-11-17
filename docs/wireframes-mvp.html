@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>TiendaInteligente · Wireframes MVP</title>
+<style>
+:root{--bg:#fff;--fg:#1c1c1e;--mut:#6b6b70;--line:#9a9aa0;--fill:#ececf0;--acc:#dcdcf5;--warn:#f3e3b8;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px);color-scheme:light}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#1b1b1f;--fg:#f0f0f2;--mut:#a0a0a8;--line:#6a6a72;--fill:#2a2a30;--acc:#34345a;--warn:#4d4222;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#1b1b1f;--fg:#f0f0f2;--mut:#a0a0a8;--line:#6a6a72;--fill:#2a2a30;--acc:#34345a;--warn:#4d4222;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html,body{margin:0}
+body{background:var(--bg);color:var(--fg);font:16px/1.35 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;padding:16px}
+.wrap{max-width:860px;margin:0 auto;display:flex;gap:24px;flex-wrap:wrap;justify-content:center;align-items:flex-start}
+.side{flex:1 1 240px;max-width:340px}
+h1{font-size:20px;margin:0 0 4px}.sub{color:var(--mut);font-size:14px;margin:0 0 12px}
+.flows button{display:block;width:100%;text-align:left;margin:0 0 6px;padding:10px 12px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--fg);font:inherit;cursor:pointer}
+.flows button:hover{background:var(--fill)}
+.note{margin-top:12px;padding:10px 12px;border:1.5px dashed var(--line);border-radius:10px;font-size:14px}
+.note b{display:block;margin-bottom:2px}
+.phone{width:min(360px,100%);height:680px;border:3px solid var(--fg);border-radius:30px;overflow:hidden;display:flex;flex-direction:column;background:var(--bg)}
+.screen{display:none;flex:1;overflow:auto;padding:14px;flex-direction:column;gap:10px}
+.screen.on{display:flex}
+.top{display:flex;align-items:center;gap:8px;font-weight:700;font-size:18px}
+.back{border:2px solid var(--line);background:var(--bg);color:var(--fg);border-radius:10px;padding:6px 12px;font:inherit;font-weight:700;cursor:pointer}
+.box{border:2px dashed var(--line);border-radius:12px;padding:12px;background:var(--bg)}
+.fill{background:var(--fill)}
+.row{display:flex;gap:8px;align-items:center;justify-content:space-between}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.btn{min-height:56px;width:100%;border:2.5px solid var(--fg);border-radius:14px;background:var(--acc);color:var(--fg);font:inherit;font-size:1.12em;font-weight:700;cursor:pointer;padding:8px 12px}
+.btn.alt{background:var(--bg)}
+.tile{border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);font:inherit;min-height:84px;padding:8px;cursor:pointer;position:relative;text-align:center}
+.tile .e{font-size:26px;display:block}.tile small{color:var(--mut)}
+.tile .q{position:absolute;top:4px;right:6px;background:var(--fg);color:var(--bg);border-radius:12px;padding:0 8px;font-weight:700;font-size:14px}
+.item{width:100%;text-align:left;border:2px solid var(--line);border-radius:12px;background:var(--bg);color:var(--fg);font:inherit;padding:12px;cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px}
+.tag{background:var(--warn);border:1.5px solid var(--line);border-radius:8px;padding:1px 8px;font-size:13px;white-space:nowrap}
+.big{font-size:28px;font-weight:800}.mut{color:var(--mut);font-size:14px}
+.tabs{display:flex;border-top:3px solid var(--fg);background:var(--bg)}
+.tabs.off{display:none}
+.tabs button{flex:1;border:0;border-right:1.5px solid var(--line);background:var(--bg);color:var(--fg);font:inherit;font-size:13px;padding:10px 2px;cursor:pointer;min-height:60px}
+.tabs button:last-child{border-right:0}
+.tabs button span{display:block;font-size:22px}
+.tabs button.on{background:var(--acc);font-weight:700}
+.ctr{text-align:center}
+.ph{border:2px dashed var(--line);border-radius:50%;width:84px;height:84px;display:flex;align-items:center;justify-content:center;margin:20px auto 6px;color:var(--mut)}
+.hi{outline:3px solid var(--fg);outline-offset:2px}
+.inp{width:100%;border:2px solid var(--line);border-radius:10px;padding:12px;font:inherit;background:var(--bg);color:var(--fg)}
+.lab{display:block;font-size:14px;color:var(--mut);margin:0 0 4px}
+.dots{display:flex;gap:14px;justify-content:center;margin:12px 0}.dots i{width:18px;height:18px;border:2px solid var(--fg);border-radius:50%}.dots i.f{background:var(--fg)}
+.kp{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.kp .tile{min-height:54px;font-size:20px;font-weight:700}
+.hid{display:none!important}
+.banner{background:var(--warn);border-bottom:2px solid var(--line);padding:6px 12px;font-size:13px;display:flex;justify-content:space-between;gap:8px;align-items:center}.banner button{border:1.5px solid var(--line);border-radius:8px;background:var(--bg);color:var(--fg);font:inherit;font-size:12px;cursor:pointer}
+</style>
+</head>
+<body>
+<div class="wrap">
+<div class="side">
+<h1>TiendaInteligente · Wireframes</h1>
+<p class="sub">MVP sin crédito. Toca dentro del teléfono o salta a un flujo:</p>
+<div class="flows" id="flows"></div>
+<div class="note" id="note"></div>
+</div>
+<div class="phone" id="phone">
+<div class="banner hid" id="offl"><span>📴 Sin conexión · todo se guarda en el celular</span><button id="reconn">Reconectar</button></div>
+<!-- Onboarding -->
+<section class="screen" id="ob1"><div class="ph">LOGO</div><h2 class="ctr" style="margin:0">Bienvenido a TiendaInteligente</h2><p class="ctr mut">Tu cuaderno de ventas, inventario y fiados, ahora en el celular.</p><div style="flex:1"></div><button class="btn" data-go="reg">Crear mi cuenta</button><button class="btn alt" id="haveAcc">Ya tengo cuenta</button></section>
+<section class="screen" id="ob2"><div class="top">Así de fácil</div>
+<div class="box row"><span style="font-size:30px">🛒</span><div><b>Vende</b><br><span class="mut">Toca los productos y listo</span></div></div>
+<div class="box row"><span style="font-size:30px">📦</span><div><b>Cuida tu inventario</b><br><span class="mut">Te avisamos qué se vence</span></div></div>
+<div class="box row"><span style="font-size:30px">📒</span><div><b>Lleva tus fiados</b><br><span class="mut">Sin cuaderno ni errores</span></div></div>
+<p class="ctr mut">Siempre puedes deshacer lo último que hiciste.</p><div style="flex:1"></div><button class="btn" data-go="ob3">Siguiente</button></section>
+<section class="screen" id="ob3"><div class="top">Tu primera venta</div><p class="mut">Te guiamos paso a paso. Nada se guarda de verdad hasta que tú lo confirmes.</p><div class="box fill ctr hi" style="padding:30px">Paso 1 de 2<br><b>Toca un producto para venderlo</b></div><div style="flex:1"></div><button class="btn" id="first">Probar una venta</button><button class="btn alt" data-go="home">Saltar por ahora</button></section>
+<!-- Inicio -->
+<section class="screen" id="home"><div class="row top"><span>Hola, Arturo 👋</span><button class="back" data-go="ajus" aria-label="Ajustes">⚙</button></div>
+<button class="item" data-go="hist" style="background:var(--fill)"><span><span class="mut">Ventas de hoy</span><br><b class="big">$ 184.500</b></span><span>›</span></button>
+<div class="grid"><div class="box"><span class="mut">Ganancia est.</span><br><b>$ 41.200</b></div><button class="box tile" data-go="inv" style="min-height:0"><span class="mut">Por vencer</span><br><b>3 productos ⚠</b></button></div>
+<button class="item" data-go="fia"><span><span class="mut">Fiados pendientes</span><br><b id="hfia"></b></span><span>›</span></button>
+<button class="btn" id="newsale" style="min-height:76px;font-size:22px">＋ NUEVA VENTA</button>
+<button class="item" data-go="rew"><span>⭐ <b>120 puntos</b><br><span class="mut">Te faltan 30 para un premio</span></span><span>›</span></button></section>
+<!-- Vender -->
+<section class="screen" id="sell"><div class="top">¿Qué vendiste?</div><input class="inp" id="sellQ" placeholder="🔍 Buscar producto…"><div class="grid" id="tiles"></div><button class="btn alt" data-go="quick" style="min-height:44px;font-size:16px">＋ Venta rápida por monto</button><div style="flex:1"></div><div class="box fill row"><div><span class="mut" id="cnt"></span><br><b class="big" id="tot" style="font-size:22px"></b></div></div><button class="btn" id="goSum">Continuar</button></section>
+<section class="screen" id="sum"><div class="row top"><button class="back" data-go="sell">‹ Atrás</button><span>Resumen</span></div><div class="box" id="lines"></div><div class="row"><b>Total</b><b class="big" id="sumTot"></b></div><div style="flex:1"></div><button class="btn" id="paid">✔ PAGÓ</button><button class="btn alt" data-go="cli">📒 FIADO</button></section>
+<section class="screen" id="cli"><div class="row top"><button class="back" data-go="sum">‹ Atrás</button><span>¿A quién se le fía?</span></div><div id="cliList" style="display:flex;flex-direction:column;gap:8px"></div><button class="btn alt" id="ncSale">＋ Cliente nuevo</button></section>
+<section class="screen" id="done"><div class="ph" style="font-size:40px">✔</div><h2 class="ctr" style="margin:0">¡Venta guardada!</h2><p class="ctr mut" id="doneTxt"></p><div style="flex:1"></div><button class="btn alt" id="undo">↶ DESHACER</button><button class="btn" id="again">Nueva venta</button><button class="btn alt" data-go="home">Ir al inicio</button></section>
+<!-- Inventario -->
+<section class="screen" id="inv"><div class="top">Inventario</div><input class="inp" id="invQ" placeholder="🔍 Buscar producto…"><div id="invList" style="display:flex;flex-direction:column;gap:8px"></div><div style="flex:1"></div><button class="btn" data-go="nprod">＋ Agregar producto</button></section>
+<section class="screen" id="invd"><div class="row top"><button class="back" data-go="inv">‹ Atrás</button><span id="idName"></span></div><div class="box"><span class="mut">En stock</span><div class="row"><button class="back" id="m">−</button><span class="big" id="idQty"></span><button class="back" id="p">＋</button></div></div><div class="box row"><span>Vence</span><b id="idExp"></b></div><div class="box fill"><span class="tag">Sugerencia</span><p style="margin:6px 0 0">Reponer con <b>[Marca aliada]</b>: 10% de descuento por volumen.<br><span class="mut">Espacio de pauta, no bloquea nada.</span></p></div><div style="flex:1"></div><button class="btn" data-go="rep">Reponer producto</button></section>
+<!-- Fiados -->
+<section class="screen" id="fia"><div class="top">Fiados</div><div class="box fill row"><span class="mut">Total por cobrar</span><b class="big" id="fTot" style="font-size:22px"></b></div><div id="fList" style="display:flex;flex-direction:column;gap:8px"></div><div style="flex:1"></div><button class="btn alt" id="ncFia">＋ Cliente nuevo</button></section>
+<section class="screen" id="fiad"><div class="row top"><button class="back" data-go="fia">‹ Atrás</button><span id="fdName"></span></div><div class="box fill"><span class="mut">Debe</span><div class="big" id="fdDebt"></div></div><div class="box"><b>Historial</b><div class="row mut" style="margin-top:6px"><span>12 nov · Compra</span><span>$ 27.000</span></div><div class="row mut"><span>8 nov · Compra</span><span>$ 18.000</span></div></div><div style="flex:1"></div><button class="btn" data-go="abono">Registrar abono</button><button class="btn alt" data-go="rec">Enviar recordatorio</button></section>
+<section class="screen" id="abono"><div class="row top"><button class="back" data-go="fiad">‹ Atrás</button><span>Abono</span></div><div class="box fill ctr"><span class="mut">Monto</span><div class="big" id="abTxt">$ 10.000</div></div><div class="grid"><button class="tile ab" data-v="10000">$ 10.000</button><button class="tile ab" data-v="20000">$ 20.000</button></div><button class="btn alt ab" data-v="all">Pagó todo</button><div style="flex:1"></div><button class="btn" id="abOk">Guardar abono</button></section>
+<section class="screen" id="rec"><div class="row top"><button class="back" data-go="fiad">‹ Atrás</button><span>Recordatorio</span></div><div class="box fill" id="recTxt"></div><p class="mut">Mensaje amable, sin presionar. El tendero lo revisa antes de enviarlo.</p><div style="flex:1"></div><button class="btn">Enviar por WhatsApp</button><button class="btn alt">Enviar por SMS</button></section>
+<!-- Recompensas -->
+<section class="screen" id="rew"><div class="row top"><button class="back" data-go="home">‹ Atrás</button><span>Mis puntos</span></div><div class="box fill ctr"><div class="big">120 ⭐</div><div class="mut">30 puntos para tu próximo premio</div></div><div class="box"><div style="height:14px;border:2px solid var(--line);border-radius:8px;overflow:hidden"><div style="width:80%;height:100%;background:var(--acc)"></div></div></div><div class="item"><span>🎁 Descuento en compra de reposición</span><span class="tag">150</span></div><div class="item"><span>🎁 Producto de marca aliada</span><span class="tag">300</span></div></section>
+<section class="screen" id="reg"><div class="row top"><button class="back" data-go="ob1">‹ Atrás</button><span>Crea tu cuenta</span></div><div><label class="lab">Tu nombre</label><input class="inp" value="Arturo Mendoza"></div><div><label class="lab">Nombre de la tienda</label><input class="inp" value="Tienda Don Arturo"></div><div><label class="lab">Número de celular</label><input class="inp" value="300 123 4567" inputmode="tel"></div><label class="box row" style="justify-content:flex-start"><input type="checkbox" checked style="width:24px;height:24px"><span>Acepto los <b data-go="terms" style="text-decoration:underline;cursor:pointer">términos y la política de datos</b></span></label><div style="flex:1"></div><button class="btn" id="regOk">Crear mi PIN</button></section>
+<section class="screen" id="terms"><div class="row top"><button class="back" data-go="reg">‹ Atrás</button><span>Tus datos</span></div><div class="box"><b>Qué guardamos</b><p class="mut">Tus ventas, tu inventario y los nombres y celulares de tus clientes de fiado.</p><b>Para qué</b><p class="mut">Solo para que la app funcione y te muestre tus cuentas. [Texto legal por redactar, Ley 1581 de 2012]</p><b>Tus derechos</b><p class="mut">Puedes consultar, corregir o borrar tus datos cuando quieras.</p></div><div style="flex:1"></div><button class="btn" data-go="reg">Entendido</button></section>
+<section class="screen" id="pin"><div class="ph" style="margin:8px auto 0">LOGO</div><h2 class="ctr" id="pinT" style="margin:0"></h2><div class="dots" id="dots"></div><div class="kp" id="kp"></div><button class="btn alt" id="forgot" data-go="recup" style="min-height:44px;font-size:16px">¿Olvidaste tu PIN?</button></section>
+<section class="screen" id="recup"><div class="row top"><button class="back" data-go="pin">‹ Atrás</button><span>Recuperar acceso</span></div><p class="mut">Te mandamos un código por SMS al celular registrado.</p><div class="box fill ctr">300 *** 4567</div><button class="btn alt" id="sendC">Enviar código</button><div><label class="lab">Código de 6 dígitos</label><input class="inp" placeholder="_ _ _ _ _ _" inputmode="numeric"></div><div style="flex:1"></div><button class="btn" id="recOk">Verificar y crear PIN nuevo</button></section>
+<section class="screen" id="nprod"><div class="row top"><button class="back" data-go="inv">‹ Atrás</button><span>Producto nuevo</span></div><div><label class="lab">Nombre</label><input class="inp" id="npN" placeholder="Ej: Panela 500 g"></div><div class="grid"><div><label class="lab">Precio de venta</label><input class="inp" inputmode="numeric" placeholder="$"></div><div><label class="lab">Costo de compra</label><input class="inp" inputmode="numeric" placeholder="$"></div></div><div class="grid"><div><label class="lab">Unidad</label><input class="inp" value="Unidad"></div><div><label class="lab">Stock mínimo</label><input class="inp" value="5" inputmode="numeric"></div></div><div><label class="lab">Cantidad inicial</label><input class="inp" id="npQ" value="10" inputmode="numeric"></div><div style="flex:1"></div><button class="btn" id="npOk">Guardar producto</button></section>
+<section class="screen" id="rep"><div class="row top"><button class="back" data-go="invd">‹ Atrás</button><span>Reponer</span></div><div class="box fill" id="repN"></div><div><label class="lab">Cantidad que llegó</label><input class="inp" id="repQ" value="12" inputmode="numeric"></div><div><label class="lab">Costo por unidad</label><input class="inp" inputmode="numeric" placeholder="$"></div><div><label class="lab">Fecha de vencimiento</label><input class="inp" placeholder="dd/mm/aaaa"></div><div style="flex:1"></div><button class="btn" id="repOk">Guardar compra</button></section>
+<section class="screen" id="ncli"><div class="row top"><button class="back" id="ncBack">‹ Atrás</button><span>Cliente nuevo</span></div><div><label class="lab">Nombre</label><input class="inp" id="ncN" placeholder="Ej: Doña Rosa"></div><div><label class="lab">Celular (opcional)</label><input class="inp" inputmode="tel"></div><div><label class="lab">Límite de fiado (opcional)</label><input class="inp" inputmode="numeric" placeholder="$"></div><div style="flex:1"></div><button class="btn" id="ncOk">Guardar cliente</button></section>
+<section class="screen" id="quick"><div class="row top"><button class="back" data-go="sell">‹ Atrás</button><span>Venta rápida</span></div><p class="mut">Para algo que no está en tu lista.</p><div><label class="lab">¿Cuánto cobraste?</label><input class="inp" id="qAmt" inputmode="numeric" value="5000" style="font-size:28px;font-weight:800"></div><div class="grid"><button class="tile qa" data-v="2000">$ 2.000</button><button class="tile qa" data-v="5000">$ 5.000</button></div><div style="flex:1"></div><button class="btn" id="qOk">Agregar a la venta</button></section>
+<section class="screen" id="hist"><div class="row top"><button class="back" data-go="home">‹ Atrás</button><span>Ventas de hoy</span></div><div id="hList" style="display:flex;flex-direction:column;gap:8px"></div></section>
+<section class="screen" id="histd"><div class="row top"><button class="back" data-go="hist">‹ Atrás</button><span>Detalle</span></div><div class="box" id="hdBody"></div><div class="box fill hid" id="hdConf"><b>¿Anular esta venta?</b><p class="mut" style="margin:4px 0 8px">Se devuelve el stock y, si era fiado, se descuenta de la deuda.</p><div class="grid"><button class="btn alt" id="hdNo">No</button><button class="btn" id="hdYes">Sí, anular</button></div></div><div style="flex:1"></div><button class="btn alt" id="annul">Anular venta</button></section>
+<section class="screen" id="ajus"><div class="row top"><button class="back" data-go="home">‹ Atrás</button><span>Ajustes</span></div><div class="box"><b>Tienda Don Arturo</b><br><span class="mut">300 123 4567 · editar datos</span></div><div class="box"><b>Tamaño de letra</b><div class="grid" style="grid-template-columns:repeat(3,1fr);margin-top:8px"><button class="tile fs" data-s="16" style="min-height:50px">Normal</button><button class="tile fs" data-s="19" style="min-height:50px">Grande</button><button class="tile fs" data-s="22" style="min-height:50px">Extra</button></div></div><button class="item" id="simOff"><span>📴 Simular sin conexión</span><span>›</span></button><button class="item"><span>💬 Ayuda por WhatsApp</span><span>›</span></button><button class="item"><span>▶ Ver el tutorial otra vez</span><span>›</span></button><div style="flex:1"></div><button class="btn alt" id="logout">Cerrar sesión</button></section>
+<nav class="tabs" id="tabs"><button data-go="home" data-t="home"><span>🏠</span>Inicio</button><button data-go="sell" data-t="sell"><span>🛒</span>Vender</button><button data-go="inv" data-t="inv"><span>📦</span>Inventario</button><button data-go="fia" data-t="fia"><span>📒</span>Fiados</button></nav>
+</div>
+</div>
+<script>
+var $=function(s){return document.querySelector(s)},fmt=function(n){return "$ "+n.toLocaleString("es-CO")};
+var P=[["Arroz 1 kg",3200,"🍚"],["Leche 1 L",4100,"🥛"],["Huevos x12",9500,"🥚"],["Aceite 1 L",8900,"🛢️"],["Pan",1500,"🍞"],["Gaseosa",3000,"🥤"]];
+var I=[["Leche 1 L",12,"en 2 días",1],["Queso 500 g",4,"en 3 días",1],["Arroz 1 kg",30,"sin vencimiento",0],["Aceite 1 L",8,"en 8 meses",0],["Huevos x12",20,"en 6 días",0]];
+var C=[["Doña Marta",45000,"hace 12 días"],["Don Luis",28500,"hace 5 días"],["Familia Pérez",18500,"hace 2 días"]];
+var cart={},cli=0,cur=0,inv=0,abV=10000,last=null,H=[{t:12800,x:"2 × Arroz 1 kg, 1 × Leche 1 L",h:"9:15",c:-1},{t:9500,x:"1 × Huevos x12",h:"10:40",c:-1}],hs=0,ncFrom="sale",pin="",pinMode="set",pinNext="ob2",off=false;
+var N={ob1:["Bienvenida","Pantalla simple con un solo botón. RF-13 · HU-10"],ob2:["Cómo funciona","Tres ideas, íconos grandes. Aclara que se puede deshacer. RF-13"],ob3:["Primera venta guiada","Recuadro resaltado guía el primer toque. Se puede saltar. RF-13"],home:["Inicio / panel","Ventas, ganancia, vencimientos y fiados de un vistazo. Botón grande de nueva venta. RF-09 · HU-07"],sell:["Vender · paso 1","Productos como tiles grandes; cada toque suma uno. Venta de contado en 2 toques: producto + Pagó. RF-01 · HU-01"],sum:["Vender · resumen","Dos botones enormes: Pagó o Fiado. Con − y ＋ se corrige la cantidad antes de cobrar. RF-01, RF-02, RF-25 · HU-16"],cli:["Elegir cliente","Solo para fiados. RF-02 · HU-02"],done:["Confirmación","Siempre ofrece Deshacer. RF-08 · HU-04"],inv:["Inventario","Lista con alerta de vencimiento visible. RF-03, RF-05 · HU-05, HU-06"],invd:["Detalle de producto","Ajuste de stock con + y −. Espacio de pauta de marca marcado como Sugerencia. RF-04, RF-12"],fia:["Fiados","Cuánto debe cada cliente y desde cuándo. RF-06 · HU-03"],fiad:["Detalle de cliente","Historial, abono y recordatorio. RF-06, RF-07, RF-10"],abono:["Registrar abono","Montos rápidos para no teclear. RF-07"],rec:["Recordatorio","Mensaje amable y editable. Canal por definir (SMS, WhatsApp o ambos). RF-10 · HU-08"],rew:["Puntos y recompensas","Progreso visible y premios canjeables. RF-11 · HU-09"],reg:["Registro","Nombre, tienda y celular; acepta términos y datos. RF-14, RF-17 · HU-11"],terms:["Términos y datos","Qué se guarda, para qué y qué derechos tiene. Texto legal por redactar. RF-17"],pin:["PIN de 4 dígitos","Teclado grande; la sesión queda abierta después. RF-15 · HU-11"],recup:["Recuperar acceso","Código por SMS al celular registrado. RF-16 · HU-12"],nprod:["Producto nuevo","Incluye costo de compra para calcular la ganancia. RF-19 · HU-13"],rep:["Reponer mercancía","Suma al stock y registra costo y vencimiento. RF-23 · HU-14"],ncli:["Cliente nuevo","Se crea sin salir de la venta fiada. RF-30, RF-32 · HU-18"],quick:["Venta rápida","Para productos no registrados. RF-26 · HU-15"],hist:["Historial del día","Toca una venta para ver su detalle. RF-27"],histd:["Detalle y anular","Pide confirmación antes de anular. RF-28 · HU-17"],ajus:["Ajustes","Tamaño de letra, ayuda, simular sin conexión y cerrar sesión. RF-18, RF-39, RF-44, RF-45 · HU-19, HU-20, HU-21"]};
+var T={home:"home",rew:"home",sell:"sell",sum:"sell",cli:"sell",done:"sell",inv:"inv",invd:"inv",fia:"fia",fiad:"fia",abono:"fia",rec:"fia",nprod:"inv",rep:"inv",ncli:"sell",quick:"sell",hist:"home",histd:"home",ajus:"home"};
+function cnt(){var n=0,t=0;P.forEach(function(p,i){var q=cart[i]||0;n+=q;t+=q*p[1]});return[n,t]}
+function debts(){return C.reduce(function(a,c){return a+c[1]},0)}
+function go(id){
+ document.querySelectorAll(".screen").forEach(function(e){e.classList.toggle("on",e.id===id)});
+ $("#tabs").classList.toggle("off",/^(ob\d|reg|terms|pin|recup)$/.test(id));
+ document.querySelectorAll("#tabs button").forEach(function(b){b.classList.toggle("on",b.dataset.t===(id==="ncli"&&ncFrom==="fia"?"fia":T[id]))});
+ var n=N[id]||["",""];$("#note").innerHTML="<b>"+n[0]+"</b>"+n[1];
+ ({home:rHome,sell:rSell,sum:rSum,cli:rCli,done:rDone,inv:rInv,invd:rInvd,fia:rFia,fiad:rFiad,abono:rAb,rec:rRec})[id]&&({home:rHome,sell:rSell,sum:rSum,cli:rCli,done:rDone,inv:rInv,invd:rInvd,fia:rFia,fiad:rFiad,abono:rAb,rec:rRec})[id]();
+ $("#"+id).scrollTop=0;
+ try{if(location.hash!=="#"+id)location.hash=id}catch(e){}
+}
+function rHome(){$("#hfia").textContent=fmt(debts())+" · "+C.length+" clientes"}
+function rSell(){var h="";P.forEach(function(p,i){var q=cart[i]||0;h+='<button class="tile" data-i="'+i+'">'+(q?'<span class="q">'+q+"</span>":"")+'<span class="e">'+p[2]+"</span>"+p[0]+"<br><small>"+fmt(p[1])+"</small></button>"});$("#tiles").innerHTML=h;var c=cnt();$("#cnt").textContent=c[0]+" productos";$("#tot").textContent=fmt(c[1])}
+function rSum(){var h="";P.forEach(function(p,i){var q=cart[i]||0;if(q)h+='<div class="row"><span>'+q+" × "+p[0]+"</span><span>"+fmt(q*p[1])+"</span></div>"});$("#lines").innerHTML=h||'<span class="mut">Aún no hay productos</span>';$("#sumTot").textContent=fmt(cnt()[1])}
+function rCli(){var h="";C.forEach(function(c,i){h+='<button class="item" data-c="'+i+'"><b>'+c[0]+'</b><span class="mut">debe '+fmt(c[1])+"</span></button>"});$("#cliList").innerHTML=h}
+function rDone(){$("#doneTxt").textContent=last?("Anotado como fiado a "+last+"."):"Pagado de contado."}
+function rInv(){var h="";I.forEach(function(x,i){h+='<button class="item" data-v="'+i+'"><span><b>'+x[0]+'</b><br><span class="mut">Quedan '+x[1]+"</span></span>"+(x[3]?'<span class="tag">⚠ vence '+x[2]+"</span>":"<span>›</span>")+"</button>"});$("#invList").innerHTML=h}
+function rInvd(){var x=I[inv];$("#idName").textContent=x[0];$("#idQty").textContent=x[1];$("#idExp").textContent=x[2]}
+function rFia(){var h="";C.forEach(function(c,i){h+='<button class="item" data-f="'+i+'"><span><b>'+c[0]+'</b><br><span class="mut">'+c[2]+"</span></span><b>"+fmt(c[1])+"</b></button>"});$("#fList").innerHTML=h;$("#fTot").textContent=fmt(debts())}
+function rFiad(){$("#fdName").textContent=C[cur][0];$("#fdDebt").textContent=fmt(C[cur][1])}
+function rAb(){$("#abTxt").textContent=fmt(abV==="all"?C[cur][1]:abV)}
+function rRec(){var c=C[cur];$("#recTxt").textContent="Hola "+c[0].replace("Doña ","").replace("Don ","")+", le recordamos con cariño su saldo de "+fmt(c[1])+" en la tienda de Arturo. ¡Gracias por su confianza!"}
+function sample(){cart={0:2,1:1,4:2}}
+document.addEventListener("click",function(e){
+ var t=e.target.closest("button,[data-go]");if(!t)return;
+ if(t.dataset.go)return go(t.dataset.go);
+ if(t.matches("#tiles .tile")){var i=t.dataset.i;cart[i]=(cart[i]||0)+1;return rSell()}
+ if(t.dataset.c!==undefined){cli=+t.dataset.c;last=C[cli][0];C[cli][1]+=cnt()[1];return go("done")}
+ if(t.dataset.v!==undefined&&t.closest("#invList")){inv=+t.dataset.v;return go("invd")}
+ if(t.dataset.f!==undefined){cur=+t.dataset.f;return go("fiad")}
+ if(t.classList.contains("ab")){abV=t.dataset.v==="all"?"all":+t.dataset.v;return rAb()}
+ var id=t.id;
+ if(id==="first"){cart={0:1};return go("sell")}
+ if(id==="newsale"||id==="again"){cart={};last=null;return go("sell")}
+ if(id==="goSum")return go("sum");
+ if(id==="paid"){last=null;return go("done")}
+ if(id==="undo"){if(last)C[cli][1]-=cnt()[1];cart={};return go("home")}
+ if(id==="m"){if(I[inv][1]>0)I[inv][1]--;return rInvd()}
+ if(id==="p"){I[inv][1]++;return rInvd()}
+ if(id==="abOk"){var v=abV==="all"?C[cur][1]:Math.min(abV,C[cur][1]);C[cur][1]-=v;return go("fiad")}
+});
+function cartTxt(){var a=[];P.forEach(function(p,i){if(cart[i])a.push(cart[i]+" × "+p[0])});return a.join(", ")}
+function rSell(){var q0=($("#sellQ").value||"").toLowerCase(),h="";P.forEach(function(p,i){if(q0&&p[0].toLowerCase().indexOf(q0)<0)return;var q=cart[i]||0;h+='<button class="tile" data-i="'+i+'">'+(q?'<span class="q">'+q+'</span>':'')+'<span class="e">'+p[2]+'</span>'+p[0]+'<br><small>'+fmt(p[1])+'</small></button>'});$("#tiles").innerHTML=h||'<p class="mut">No encontramos ese producto. Prueba con Venta rápida.</p>';var c=cnt();$("#cnt").textContent=c[0]+" productos";$("#tot").textContent=fmt(c[1])}
+function rSum(){var h="";P.forEach(function(p,i){var q=cart[i]||0;if(q)h+='<div class="row" style="margin-bottom:8px"><span>'+p[0]+'<br><small class="mut">'+fmt(p[1])+' c/u</small></span><span><button class="back" data-m="'+i+'">−</button> <b>'+q+'</b> <button class="back" data-p="'+i+'">＋</button></span></div>'});$("#lines").innerHTML=h||'<span class="mut">Aún no hay productos</span>';$("#sumTot").textContent=fmt(cnt()[1])}
+function rInv(){var q0=($("#invQ").value||"").toLowerCase(),h="";I.forEach(function(x,i){if(q0&&x[0].toLowerCase().indexOf(q0)<0)return;h+='<button class="item" data-v="'+i+'"><span><b>'+x[0]+'</b><br><span class="mut">Quedan '+x[1]+(x[1]<=5?' · stock bajo':'')+'</span></span>'+(x[3]?'<span class="tag">⚠ vence '+x[2]+'</span>':'<span>›</span>')+'</button>'});$("#invList").innerHTML=h||'<p class="mut">No hay productos con ese nombre.</p>'}
+function rFia(){var h="";C.forEach(function(c,i){h+='<button class="item" data-f="'+i+'"><span><b>'+c[0]+'</b><br><span class="mut">'+(c[1]>0?c[2]:'Sin deuda')+'</span></span><b>'+fmt(c[1])+'</b></button>'});$("#fList").innerHTML=h||'<div class="box ctr mut">Aún no tienes fiados.<br>Cuando fíes una venta, aparecerá aquí.</div>';$("#fTot").textContent=fmt(debts())}
+function rDone(){$("#doneTxt").textContent=(last?"Anotado como fiado a "+last+".":"Pagado de contado.")+(off?" Se sincroniza cuando vuelva el internet.":"")}
+function rHist(){var h="";H.forEach(function(s,i){h+='<button class="item" data-h="'+i+'"><span><b>'+fmt(s.t)+'</b><br><span class="mut">'+s.h+' · '+(s.c>=0?'Fiado: '+C[s.c][0]:'Pagado')+'</span></span><span>›</span></button>'});$("#hList").innerHTML=h||'<div class="box ctr mut">Aún no hay ventas hoy.</div>'}
+function rHd(){var s=H[hs];$("#hdConf").classList.add("hid");$("#annul").classList.remove("hid");$("#hdBody").innerHTML='<div class="row"><b>'+s.h+'</b><b>'+fmt(s.t)+'</b></div><div class="mut">'+s.x+'</div><div class="mut" style="margin-top:6px">'+(s.c>=0?'Fiado a '+C[s.c][0]:'Pagado de contado')+'</div>'}
+function rRep(){$("#repN").textContent=I[inv][0]+" · hoy quedan "+I[inv][1]}
+function dots(){var h="";for(var i=0;i<4;i++)h+='<i class="'+(i<pin.length?'f':'')+'"></i>';$("#dots").innerHTML=h}
+function rPin(){$("#pinT").textContent=pinMode==="set"?"Crea tu PIN":"Ingresa tu PIN";$("#forgot").classList.toggle("hid",pinMode==="set");pin="";dots()}
+var kk="";["1","2","3","4","5","6","7","8","9","","0","⌫"].forEach(function(x){kk+=x?'<button class="tile" data-k="'+x+'">'+x+'</button>':'<span></span>'});$("#kp").innerHTML=kk;
+var _g=go;go=function(id){_g(id);var R={hist:rHist,histd:rHd,pin:rPin,rep:rRep};R[id]&&R[id]()};
+$("#invQ").addEventListener("input",rInv);$("#sellQ").addEventListener("input",rSell);
+document.addEventListener("click",function(e){
+ var t=e.target.closest("button,[data-go]");if(!t)return;var id=t.id,d=t.dataset;
+ if(d.m!==undefined){var i=d.m;cart[i]=(cart[i]||1)-1;if(cart[i]<=0)delete cart[i];return rSum()}
+ if(d.p!==undefined){cart[d.p]=(cart[d.p]||0)+1;return rSum()}
+ if(d.h!==undefined){hs=+d.h;return go("histd")}
+ if(d.k!==undefined){if(d.k==="⌫")pin=pin.slice(0,-1);else if(pin.length<4)pin+=d.k;dots();if(pin.length===4)setTimeout(function(){go(pinNext)},250);return}
+ if(t.classList.contains("qa")){$("#qAmt").value=d.v;return}
+ if(t.classList.contains("fs")){$("#phone").style.fontSize=d.s+"px";return}
+ if(id==="paid"||(d.c!==undefined&&t.closest("#cliList"))){H.unshift({t:cnt()[1],x:cartTxt(),h:"Ahora",c:id==="paid"?-1:+d.c});return}
+ if(id==="undo"){H.shift();return}
+ if(id==="haveAcc"){pinMode="login";pinNext="home";return go("pin")}
+ if(id==="regOk"){pinMode="set";pinNext="ob2";return go("pin")}
+ if(id==="sendC"){t.textContent="Código enviado ✔";return}
+ if(id==="recOk"){pinMode="set";pinNext="home";return go("pin")}
+ if(id==="logout"){pinMode="login";pinNext="home";return go("pin")}
+ if(id==="npOk"){var n=$("#npN").value.trim()||"Producto nuevo";I.unshift([n,+$("#npQ").value||0,"sin vencimiento",0]);$("#npN").value="";return go("inv")}
+ if(id==="repOk"){I[inv][1]+=(+$("#repQ").value||0);return go("invd")}
+ if(id==="ncSale"){ncFrom="sale";return go("ncli")}
+ if(id==="ncFia"){ncFrom="fia";return go("ncli")}
+ if(id==="ncBack")return go(ncFrom==="fia"?"fia":"cli");
+ if(id==="ncOk"){var nm=$("#ncN").value.trim()||"Cliente nuevo";$("#ncN").value="";C.push([nm,0,"nuevo"]);if(ncFrom==="fia")return go("fia");cli=C.length-1;last=nm;C[cli][1]+=cnt()[1];H.unshift({t:cnt()[1],x:cartTxt(),h:"Ahora",c:cli});return go("done")}
+ if(id==="qOk"){var a=+($("#qAmt").value.replace(/\D/g,""))||0;P.push(["Venta rápida",a,"💵"]);cart[P.length-1]=1;return go("sell")}
+ if(id==="annul"){t.classList.add("hid");$("#hdConf").classList.remove("hid");return}
+ if(id==="hdNo")return rHd();
+ if(id==="hdYes"){var s=H[hs];if(s.c>=0)C[s.c][1]=Math.max(0,C[s.c][1]-s.t);H.splice(hs,1);return go("hist")}
+ if(id==="simOff"){off=!off;$("#offl").classList.toggle("hid",!off);return}
+ if(id==="reconn"){off=false;$("#offl").classList.add("hid");return}
+});
+var F=[["1 · Onboarding y primera venta","ob1"],["2 · Venta de contado (2 toques)","c"],["3 · Venta fiada","f"],["4 · Ver y cobrar un fiado","fia"],["5 · Alertas de vencimiento","inv"],["6 · Panel de inicio","home"],["7 · Registro e ingreso con PIN","reg"],["8 · Agregar producto y reponer","nprod"],["9 · Venta rápida y editar carrito","quick"],["10 · Anular una venta","hist"],["11 · Uso sin conexión","off"]];
+F.forEach(function(f){var b=document.createElement("button");b.textContent=f[0];b.onclick=function(){var k=f[1];if(k==="c"||k==="f"){sample();go("sell")}else if(k==="off"){off=true;$("#offl").classList.remove("hid");sample();go("sell")}else{if(k==="quick")sample();go(k)}};$("#flows").appendChild(b)});
+window.addEventListener("hashchange",function(){var h=location.hash.slice(1);if(N[h])go(h)});
+go(N[location.hash.slice(1)]?location.hash.slice(1):"ob1");
+</script>
+</body>
+</html>
