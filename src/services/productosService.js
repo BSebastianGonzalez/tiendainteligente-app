@@ -1,18 +1,19 @@
 import { seed } from '../data/seed';
+import { read, write } from './storageService';
 
-const KEY = 'ti_productos';
+const KEY = 'productos';
 export const productosService = {
   async listar() {
-    const guardados = JSON.parse(localStorage.getItem(KEY) || 'null');
+    const guardados = read(KEY, null);
     if (guardados) return guardados;
-    localStorage.setItem(KEY, JSON.stringify(seed.productos));
+    write(KEY, seed.productos);
     return seed.productos;
   },
   async crear(prod) {
     const lista = await this.listar();
     const nuevo = { ...prod, id: `p${Date.now()}`, archivado: false };
     lista.push(nuevo);
-    localStorage.setItem(KEY, JSON.stringify(lista));
+    write(KEY, lista);
     return nuevo;
   },
   async actualizar(id, cambios) {
@@ -20,7 +21,7 @@ export const productosService = {
     const idx = lista.findIndex(p => p.id === id);
     if (idx === -1) throw new Error('Producto no encontrado');
     lista[idx] = { ...lista[idx], ...cambios };
-    localStorage.setItem(KEY, JSON.stringify(lista));
+    write(KEY, lista);
     return lista[idx];
   },
   async archivar(id) {
@@ -37,7 +38,17 @@ export const productosService = {
       costo: Number(costo || actual.costo || 0),
       vencimiento: vencimiento || actual.vencimiento,
     };
-    localStorage.setItem(KEY, JSON.stringify(lista));
+    write(KEY, lista);
+    return lista[idx];
+  },
+  async ajustarStock(id, delta) {
+    const lista = await this.listar();
+    const idx = lista.findIndex(producto => producto.id === id);
+    if (idx === -1) throw new Error('Producto no encontrado');
+    const nuevoStock = Number(lista[idx].stockActual || 0) + Number(delta);
+    if (nuevoStock < 0) throw new Error('No hay suficiente stock');
+    lista[idx] = { ...lista[idx], stockActual: nuevoStock };
+    write(KEY, lista);
     return lista[idx];
   },
 };

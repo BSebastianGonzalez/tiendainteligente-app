@@ -31,4 +31,12 @@ export const seed = {
     { id: 'p29', nombre: 'Mayonesa Fruco 200 g', precio: 4800, costo: 3400, unidad: 'frasco', stockActual: 7, stockMinimo: 2, vencimiento: '2026-12-15', categoria: 'condimentos', archivado: false },
     { id: 'p30', nombre: 'Salsa de tomate Fruco 400 g', precio: 5500, costo: 3900, unidad: 'frasco', stockActual: 6, stockMinimo: 2, vencimiento: '2026-12-20', categoria: 'condimentos', archivado: false },
   ],
+  clientes: [
+    { id: 'c01', nombre: 'Doña Marta', celular: '573001112233', saldoFiado: 18500, creadoEn: '2026-11-02' },
+    { id: 'c02', nombre: 'Don Luis', celular: '573004445566', saldoFiado: 9200, creadoEn: '2026-11-08' },
+  ],
+  premios: [
+    { id: 'r01', nombre: 'Descuento en compra', puntos: 30, descripcion: 'Canje gestionado por el equipo.' },
+    { id: 'r02', nombre: 'Kit para la tienda', puntos: 80, descripcion: 'Un detalle para seguir creciendo.' },
+  ],
 };
