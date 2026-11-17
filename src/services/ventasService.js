@@ -18,4 +18,18 @@ export const ventasService = {
     localStorage.setItem(KEY, JSON.stringify(lista));
     return lista[idx];
   },
+  async abonar(clienteId, monto) {
+    const lista = await this.listar();
+    const nueva = {
+      id: `v${Date.now()}`,
+      fecha: new Date().toISOString(),
+      tipo: 'abono',
+      clienteId,
+      total: Number(monto),
+      anulada: false,
+    };
+    lista.push(nueva);
+    localStorage.setItem(KEY, JSON.stringify(lista));
+    return nueva;
+  },
 };
