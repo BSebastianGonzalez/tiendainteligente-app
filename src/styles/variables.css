@@ -1,38 +1,49 @@
 :root {
-  /* Colores — extraídos de Figma (refinados en feat/tokens-figma) */
-  --color-primary-50: #e8f5e9;
-  --color-primary-500: #2d6a4f;
-  --color-primary-600: #1b5e3b;
-  --color-primary-900: #0a2e1d;
-  --color-amber-500: #f59e0b;
-  --color-red-500: #ef4444;
+  /* Tokens del archivo Figma: fundamentos y componentes */
+  --color-primary-50: #e7f5ed;
+  --color-primary-100: #d3eee0;
+  --color-primary-600: #0f6b4a;
+  --color-primary-700: #0a573c;
+  --color-primary-800: #06432f;
+  --color-primary-900: #042f21;
+  --color-amber-100: #fdf0cc;
+  --color-amber-500: #f2a413;
+  --color-amber-800: #7a4b00;
+  --color-red-100: #fde3e3;
+  --color-red-700: #b42318;
   --color-neutral-0: #ffffff;
-  --color-neutral-50: #f9fafb;
-  --color-neutral-100: #f3f4f6;
-  --color-neutral-200: #e5e7eb;
-  --color-neutral-500: #6b7280;
-  --color-neutral-700: #374151;
-  --color-neutral-900: #111827;
+  --color-neutral-50: #f7f9f8;
+  --color-neutral-100: #eef1ef;
+  --color-neutral-300: #c6cdc9;
+  --color-neutral-600: #58605b;
+  --color-neutral-900: #151a17;
 
   /* Semánticos */
-  --bg-screen: var(--color-neutral-50);
+  --bg-screen: var(--color-neutral-100);
   --bg-surface: var(--color-neutral-0);
+  --bg-subtle: var(--color-neutral-100);
+  --bg-primary: var(--color-primary-600);
+  --bg-primary-soft: var(--color-primary-100);
+  --bg-accent-soft: var(--color-amber-100);
   --text-primary: var(--color-neutral-900);
-  --text-secondary: var(--color-neutral-500);
-  --text-disabled: var(--color-neutral-200);
-  --color-success: var(--color-primary-500);
+  --text-secondary: var(--color-neutral-600);
+  --text-on-primary: #ffffff;
+  --text-brand: var(--color-primary-600);
+  --text-warning: var(--color-amber-800);
+  --text-danger: var(--color-red-700);
+  --color-success: var(--color-primary-600);
   --color-warning: var(--color-amber-500);
-  --color-danger: var(--color-red-500);
-  --color-border: var(--color-neutral-200);
+  --color-danger: var(--color-red-700);
+  --color-border: var(--color-neutral-300);
 
   /* Tipografía */
   --font-family: 'Nunito', system-ui, sans-serif;
   --text-display-xl: 2rem;
-  --text-title: 1.25rem;
+  --text-title: 1.5rem;
   --text-heading: 1.125rem;
   --text-body: 1rem;
   --text-caption: 0.875rem;
-  --text-overline: 0.75rem;
+  --text-overline: 0.8125rem;
 
   /* Espaciados */
   --space-1: 4px;
